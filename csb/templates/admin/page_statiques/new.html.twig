@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New PageStatiques{% endblock %}
+
+{% block body %}
+    <h1>Create new PageStatiques</h1>
+
+    {{ include('page_statiques/_form.html.twig') }}
+
+    <a href="{{ path('page_statiques_index') }}">back to list</a>
+{% endblock %}

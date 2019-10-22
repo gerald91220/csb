@@ -1,0 +1,42 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Themes index{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Themes</strong>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for theme in themes %}
+            <tr>
+                <td>{{ theme.id }}</td>
+                <td>{{ theme.titre }}</td>
+                <td>
+                    <a href="{{ path('themes_edit', {'id': theme.id}) }}" title="Editer"><span class="ti-pencil-alt"></span></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <button type="button" class="btn btn-success btn-sm " ><a style="color: #fff;" href="{{ path('themes_new') }}"><i class="fa fa-plus"></i> Créer un nouveau theme</a></button>
+            </div>
+    </div>
+    </div>
+{% endblock %}

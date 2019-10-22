@@ -1,0 +1,41 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Themes index{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Gestion des fichiers</strong>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fichier</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for image in images %}
+            <tr>
+                <td>{{ image.id }}</td>
+                <td>{{ image.fichier }}</td>
+                <td>
+                    <a href="{{ path('images_show', {'id': image.id}) }}">show</a>
+                    <a href="{{ path('images_edit', {'id': image.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Il n'a pas de fichier</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <button type="button" class="btn btn-success btn-sm " ><a style="color: #fff;" href="{{ path('images_new') }}"><i class="fa fa-plus"></i> Créer un nouveau fichier</a></button>
+            </div>
+    </div>
+    </div>    
+{% endblock %}

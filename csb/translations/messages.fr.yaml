@@ -1,0 +1,21 @@
+Created_at: Créé le
+Update: Sauvegarder
+back to list: Liste
+Delete: Supprimer
+Faire votre choix: Faire votre choix
+Password : Mot de passe
+Repeat Password : Repeter le mot de passe
+form:
+  label:
+    title: Titre
+    content: Contenu
+    choix : Choix
+    auteur : Auteur
+    editeur : Editeur
+    updated_at : Mis à jour
+    username : Login
+    roles : Role
+
+articles:
+  new:
+    success: Votre article %title% a bien été enregistrer

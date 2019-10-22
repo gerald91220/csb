@@ -1,0 +1,13 @@
+{{ form_start(form) }}
+{{ form_widget(form) }}
+    <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+            <i class="fa fa-dot-circle-o"></i> {{ button_label|default('Sauvegader') }}
+        </button>
+        {% if button_label is defined and button_label == 'Update' %}
+            {{ include('admin/themes/_delete_form.html.twig') }}   
+         {% endif %}
+         
+         <button type="button" class="btn btn-secondary btn-sm " ><a style="color: #fff;" href="{{ path('themes_index') }}"> <i class="fa fa-list-ul"></i> Liste</a></button>
+    </div>
+{{ form_end(form) }}

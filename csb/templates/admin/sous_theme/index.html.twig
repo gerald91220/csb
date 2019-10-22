@@ -1,0 +1,42 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Themes index{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Sous Themes</strong>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sous_theme in sous_themes %}
+            <tr>
+                <td>{{ sous_theme.id }}</td>
+                <td>{{ sous_theme.titre }}</td>
+                <td>
+
+                    <a href="{{ path('sous_theme_edit', {'id': sous_theme.id}) }}"title="Editer">   </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Il n'y a pas de sous theme</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+         <button type="button" class="btn btn-success btn-sm " ><a style="color: #fff;" href="{{ path('sous_theme_new') }}"><i class="fa fa-plus"></i> Créer un nouveau sous theme</a></button>
+            </div>
+    </div>
+    </div>
+{% endblock %}

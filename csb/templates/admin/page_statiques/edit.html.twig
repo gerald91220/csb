@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit PageStatiques{% endblock %}
+
+{% block body %}
+    <h1>Edit PageStatiques</h1>
+
+    {{ include('page_statiques/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('page_statiques_index') }}">back to list</a>
+
+    {{ include('page_statiques/_delete_form.html.twig') }}
+{% endblock %}

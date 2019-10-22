@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Articles index{% endblock %}
+
+{% block content %}
+    {%  block titre_page %}{% endblock %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Articles</strong>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Titre</th>
+                            <th>Contenu</th>
+                            <th>DateCreation</th>
+                            <th>DateUpdate</th>
+                            <th>Image</th>
+                            <th>actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for article in articles %}
+                            <tr>
+                                <td>{{ article.id }}</td>
+                                <td>{{ article.titre }}</td>
+                                <td>{{ article.contenu }}</td>
+                                <td>{{ article.dateCreation ? article.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ article.dateUpdate ? article.dateUpdate|date('Y-m-d H:i:s') : '' }}</td>
+                                <td>{{ article.image }}</td>
+                                <td>
+                                    <a href="{{ path('articles_show', {'id': article.id}) }}">show</a>
+                                    <a href="{{ path('articles_edit', {'id': article.id}) }}">edit</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="7">Il n' a pas d'articles</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <a href="{{ path('articles_new') }}">Create new</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

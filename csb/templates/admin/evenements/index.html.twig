@@ -1,0 +1,51 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Evenements{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <strong class="card-title">Evenements</strong>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                 <th>Image</th>
+                <th>Titre</th>
+                <th>Description courte</th>
+                <th>Contenu</th>
+                <th>DateCreation</th>
+                <th>Activer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for evenement in evenements %}
+            <tr>
+                <td>{{ evenement.id }}</td>
+                <td><img width="50px" src="{{ vich_uploader_asset(evenement, 'imageFile') }}"></td>
+                <td>{{ evenement.titre }}</td>
+                <td>{{ evenement.description | slice(0, 55) }}</td>
+                <td>{{ evenement.Contenu | slice(0, 55)}}</td>
+                <td>{{ evenement.dateCreation ? evenement.dateCreation|date('d-m-Y') : '' }}</td>
+                <td> {% if evenement.active %}<i class="fa fa-dot-circle-o green"></i>{% else %}<i class="fa  fa-circle red" ></i>{% endif %}</td>
+                <td>
+                    <a href="{{ path(type~'_edit', {'id': evenement.id}) }}" title='editer'><span  class="ti-pencil-alt" ></span></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Il n'y a pas d'evenement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+        <button type="button" class="btn btn-success btn-sm " ><a style="color: #fff;" href="{{ path(type~'_new') }}"><i class="fa fa-plus"></i> Créer un nouveau evenement</a></button>
+            </div>
+    </div>
+    </div>
+
+{% endblock %}

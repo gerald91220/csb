@@ -1,0 +1,23 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Nouveau Themes{% endblock %}
+
+{% block content %}
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Nouveau</strong> Evenement
+            </div>
+            <div class="card-body card-block">
+                {{ include('admin/evenements/_form.html.twig') }}
+            </div>
+            <div class="card-footer">  
+                <button type="button" class="btn btn-secondary btn-sm " >
+                    <a style="color: #fff;" href="{{ path(type~'_index') }}">
+                        <i class="fa fa-list-ul"></i> Liste</a>
+                </button>       
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

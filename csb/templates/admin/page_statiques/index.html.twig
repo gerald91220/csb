@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PageStatiques index{% endblock %}
+
+{% block body %}
+    <h1>PageStatiques index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for page_statique in page_statiques %}
+            <tr>
+                <td>{{ page_statique.id }}</td>
+                <td>{{ page_statique.titre }}</td>
+                <td>{{ page_statique.contenu }}</td>
+                <td>
+                    <a href="{{ path('page_statiques_show', {'id': page_statique.id}) }}">show</a>
+                    <a href="{{ path('page_statiques_edit', {'id': page_statique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('page_statiques_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PageStatiques{% endblock %}
+
+{% block body %}
+    <h1>PageStatiques</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ page_statique.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ page_statique.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ page_statique.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('page_statiques_index') }}">back to list</a>
+
+    <a href="{{ path('page_statiques_edit', {'id': page_statique.id}) }}">edit</a>
+
+    {{ include('page_statiques/_delete_form.html.twig') }}
+{% endblock %}
